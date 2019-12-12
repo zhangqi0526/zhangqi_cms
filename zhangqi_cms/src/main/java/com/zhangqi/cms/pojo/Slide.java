@@ -1,21 +1,10 @@
 package com.zhangqi.cms.pojo;
 
 public class Slide {
-
 	private Integer id;
 	private String title;
 	private String picture;
 	private String url;
-	public Slide(Integer id, String title, String picture, String url) {
-		super();
-		this.id = id;
-		this.title = title;
-		this.picture = picture;
-		this.url = url;
-	}
-	public Slide() {
-		super();
-	}
 	public Integer getId() {
 		return id;
 	}
@@ -44,5 +33,15 @@ public class Slide {
 	public String toString() {
 		return "Slide [id=" + id + ", title=" + title + ", picture=" + picture + ", url=" + url + "]";
 	}
-	
+	public Slide(Integer id, String title, String picture, String url) {
+		super();
+		this.id = id;
+		this.title = title;
+		this.picture = picture;
+		this.url = url;
+	}
+	public Slide() {
+		super();
+	}
+
 }

@@ -1,45 +1,24 @@
 package com.zhangqi.cms.pojo;
 
-import java.sql.Date;
+import java.io.Serializable;
 
-public class User {
-
-	/*
-	 * 序列化版本号
+public class User implements Serializable{
+	/**
+	 * 序列化
 	 */
-	
-	private  static final long serialVersionUID =1L;
+	private static final long serialVersionUID = 1L;
 	private Integer id;
 	private String username;
 	private String password;
 	private String nickname;
-	private Date birthday;
-	private Integer gender;
-	private Integer locked;
-	private Integer score;
-	private String role;
+	private String birthday;
+	private int gender;
+	private int locked;
+	private String create_time;
+	private String update_time;
 	private String url;
-	private Date create_time;
-	private Date update_time;
-	public User(Integer id, String username, String password, String nickname, Date birthday, Integer gender,
-			Integer locked, Integer score, String role, String url, Date create_time, Date update_time) {
-		super();
-		this.id = id;
-		this.username = username;
-		this.password = password;
-		this.nickname = nickname;
-		this.birthday = birthday;
-		this.gender = gender;
-		this.locked = locked;
-		this.score = score;
-		this.role = role;
-		this.url = url;
-		this.create_time = create_time;
-		this.update_time = update_time;
-	}
-	public User() {
-		super();
-	}
+	private String score;
+	private int role;
 	public Integer getId() {
 		return id;
 	}
@@ -64,35 +43,35 @@ public class User {
 	public void setNickname(String nickname) {
 		this.nickname = nickname;
 	}
-	public Date getBirthday() {
+	public String getBirthday() {
 		return birthday;
 	}
-	public void setBirthday(Date birthday) {
+	public void setBirthday(String birthday) {
 		this.birthday = birthday;
 	}
-	public Integer getGender() {
+	public int getGender() {
 		return gender;
 	}
-	public void setGender(Integer gender) {
+	public void setGender(int gender) {
 		this.gender = gender;
 	}
-	public Integer getLocked() {
+	public int getLocked() {
 		return locked;
 	}
-	public void setLocked(Integer locked) {
+	public void setLocked(int locked) {
 		this.locked = locked;
 	}
-	public Integer getScore() {
-		return score;
+	public String getCreate_time() {
+		return create_time;
 	}
-	public void setScore(Integer score) {
-		this.score = score;
+	public void setCreate_time(String create_time) {
+		this.create_time = create_time;
 	}
-	public String getRole() {
-		return role;
+	public String getUpdate_time() {
+		return update_time;
 	}
-	public void setRole(String role) {
-		this.role = role;
+	public void setUpdate_time(String update_time) {
+		this.update_time = update_time;
 	}
 	public String getUrl() {
 		return url;
@@ -100,26 +79,42 @@ public class User {
 	public void setUrl(String url) {
 		this.url = url;
 	}
-	public Date getCreate_time() {
-		return create_time;
+	public String getScore() {
+		return score;
 	}
-	public void setCreate_time(Date create_time) {
+	public void setScore(String score) {
+		this.score = score;
+	}
+	public int getRole() {
+		return role;
+	}
+	public void setRole(int role) {
+		this.role = role;
+	}
+	public User(Integer id, String username, String password, String nickname, String birthday, int gender, int locked,
+			String create_time, String update_time, String url, String score, int role) {
+		super();
+		this.id = id;
+		this.username = username;
+		this.password = password;
+		this.nickname = nickname;
+		this.birthday = birthday;
+		this.gender = gender;
+		this.locked = locked;
 		this.create_time = create_time;
-	}
-	public Date getUpdate_time() {
-		return update_time;
-	}
-	public void setUpdate_time(Date update_time) {
 		this.update_time = update_time;
+		this.url = url;
+		this.score = score;
+		this.role = role;
 	}
-	public static long getSerialversionuid() {
-		return serialVersionUID;
+	public User() {
+		super();
 	}
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", username=" + username + ", password=" + password + ", nickname=" + nickname
-				+ ", birthday=" + birthday + ", gender=" + gender + ", locked=" + locked + ", score=" + score
-				+ ", role=" + role + ", url=" + url + ", create_time=" + create_time + ", update_time=" + update_time
+				+ ", birthday=" + birthday + ", gender=" + gender + ", locked=" + locked + ", create_time="
+				+ create_time + ", update_time=" + update_time + ", url=" + url + ", score=" + score + ", role=" + role
 				+ "]";
 	}
 	
