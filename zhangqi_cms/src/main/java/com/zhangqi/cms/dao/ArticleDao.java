@@ -8,6 +8,7 @@ import com.zhangqi.cms.pojo.Article;
 
 public interface ArticleDao {
 
+	
 	/**
 	 * @Title: selectById   
 	 * @Description: 根据Id，查询对象   
