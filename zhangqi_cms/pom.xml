@@ -34,11 +34,11 @@
 
 	<!-- jar依赖 -->
 	<dependencies>
-		<dependency>
+		<!-- <dependency>
 		<groupId>com.zhangqi.common.utils</groupId>
   		<artifactId>common-utils</artifactId>
   		<version>0.0.1-SNAPSHOT</version>
-		</dependency>
+		</dependency> -->
 		<!-- 解决冲突的依赖 -->
 		<dependency>
 			<groupId>javax.validation</groupId>
