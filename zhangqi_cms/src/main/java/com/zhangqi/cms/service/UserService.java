@@ -1,6 +1,7 @@
 package com.zhangqi.cms.service;
 
-import com.sun.tools.internal.xjc.reader.xmlschema.bindinfo.BIConversion.User;
+import com.github.pagehelper.PageInfo;
+import com.zhangqi.cms.pojo.User;
 
 public interface UserService {
 
@@ -50,4 +51,5 @@ public interface UserService {
 	 * @throws
 	 */
 	int addScore(Integer userId,int score);
+	PageInfo<User> getPageInfo(User user, int pageNum, int pageSize);
 }

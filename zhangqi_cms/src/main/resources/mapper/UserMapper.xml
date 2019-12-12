@@ -4,6 +4,14 @@
 <mapper namespace="com.zhangqi.cms.dao.UserDao">
 	<select id="select" resultType="User">
 		select * from cms_user
+		<where>
+			<if test="user.username != null and user.username!=''">
+				username like '%${user.username}%'
+			</if>
+			<if test="user.nickname != null and user.nickname!=''">
+				username like '%${user.nickname}%'
+			</if>
+		</where>
 	</select>
 	
 	<select id="selectById" resultType="User">
