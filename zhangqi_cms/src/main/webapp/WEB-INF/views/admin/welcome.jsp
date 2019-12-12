@@ -1,12 +1,30 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-
-</body>
-</html>
+ <div class="row">
+ 	<div class="alert alert-primary col-12" role="alert">
+	  欢迎使用CMS内容管理系统
+</div>
+  <div class="card col-4" style="width: 18rem;">
+	  <ul class="list-group list-group-flush">
+	    <li class="list-group-item">Cras justo odio</li>
+	    <li class="list-group-item">Dapibus ac facilisis in</li>
+	    <li class="list-group-item">Vestibulum at eros</li>
+	  </ul>
+  </div>
+  
+  <div class="card col-4" style="width: 18rem;">
+	  <ul class="list-group list-group-flush">
+	    <li class="list-group-item">Cras justo odio</li>
+	    <li class="list-group-item">Dapibus ac facilisis in</li>
+	    <li class="list-group-item">Vestibulum at eros</li>
+	  </ul>
+  </div>
+  
+  <div class="card col-4" style="width: 18rem;">
+	  <ul class="list-group list-group-flush">
+	    <li class="list-group-item">Cras justo odio</li>
+	    <li class="list-group-item">Dapibus ac facilisis in</li>
+	    <li class="list-group-item">Vestibulum at eros</li>
+	  </ul>
+  </div>
+</div>
