@@ -45,7 +45,7 @@
 <jsp:include page="../common/page.jsp"></jsp:include>
 <script>
 	function gotoPage(pageNo){
-		$("[name=pageNum]"):val(pageNo);
+		$("[name=pageNum]").val(pageNo);
 		console.log(pageNo);
 		query();
 	}
