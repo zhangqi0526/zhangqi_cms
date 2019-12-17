@@ -33,7 +33,7 @@ public class Article implements Serializable{
 
     private Date updated;
 
-    private String commentcnt;
+    private int commentcnt;
 
     private String content;
     
@@ -141,15 +141,17 @@ public class Article implements Serializable{
         this.updated = updated;
     }
 
-    public String getCommentcnt() {
-        return commentcnt;
-    }
+   
 
-    public void setCommentcnt(String commentcnt) {
-        this.commentcnt = commentcnt == null ? null : commentcnt.trim();
-    }
+    public int getCommentcnt() {
+		return commentcnt;
+	}
 
-    public String getContent() {
+	public void setCommentcnt(int commentcnt) {
+		this.commentcnt = commentcnt;
+	}
+
+	public String getContent() {
         return content;
     }
 

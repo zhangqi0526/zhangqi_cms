@@ -27,18 +27,18 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.zhangguoming.cms.controller.file.FileManager;
-import com.zhangguoming.cms.controller.file.FileResult;
-import com.zhangguoming.cms.controller.file.NameComparator;
-import com.zhangguoming.cms.controller.file.SizeComparator;
-import com.zhangguoming.cms.controller.file.TypeComparator;
+import com.zhangqi.cms.controller.file.FileController;
+import com.zhangqi.cms.controller.file.FileResult;
+import com.zhangqi.cms.controller.file.NameComparator;
+import com.zhangqi.cms.controller.file.SizeComparator;
+import com.zhangqi.cms.controller.file.TypeComparator;
 
 @Controller
 @RequestMapping("/file/")
-public class FileManager {
+public class FileController {
 
 	/** 日志记录器 **/
-	private static Logger log = Logger.getLogger(FileManager.class);
+	private static Logger log = Logger.getLogger(FileController.class);
 	/** cms.properties配置文件中读取 **/
 	@Value("${upload.path}")
 	String picRoot;

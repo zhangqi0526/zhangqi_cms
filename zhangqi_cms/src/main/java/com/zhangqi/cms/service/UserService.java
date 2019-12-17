@@ -4,7 +4,6 @@ import com.github.pagehelper.PageInfo;
 import com.zhangqi.cms.pojo.User;
 
 public interface UserService {
-
 	/**
 	 * @Title: register   
 	 * @Description: 注册新增用户   
@@ -51,5 +50,16 @@ public interface UserService {
 	 * @throws
 	 */
 	int addScore(Integer userId,int score);
-	PageInfo<User> getPageInfo(User user, int pageNum, int pageSize);
+	/**
+	 * @Title: getPageInfo   
+	 * @Description: 查询用户列表（PageInfo）   
+	 * @param: @param user
+	 * @param: @param pageNum
+	 * @param: @param pageSize
+	 * @param: @return      
+	 * @return: PageInfo<User>      
+	 * @throws
+	 */
+	PageInfo<User> getPageInfo(User user, int pageNum,
+			int pageSize);
 }

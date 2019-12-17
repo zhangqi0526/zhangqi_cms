@@ -20,13 +20,13 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public boolean locked(Integer userId) {
 		// TODO Auto-generated method stub
-		return false;
+		return userDao.updateLocked(userId,1)>0;
 	}
 
 	@Override
 	public boolean unLocked(Integer userId) {
 		// TODO Auto-generated method stub
-		return false;
+		return userDao.updateLocked(userId,0)>0;
 	}
 
 	@Override

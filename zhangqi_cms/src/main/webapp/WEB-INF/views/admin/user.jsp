@@ -32,10 +32,10 @@
 		  </td>
 		  <td>
 		  	<c:if test="${item.locked==0 }">
-		  		<button type="button" class="btn btn-primary" onclick="locaked('${item.id}')">禁用</button>
+		  		<button type="button" class="btn btn-primary" onclick="locked('${item.id}')">禁用</button>
 		  	</c:if>
 		  	<c:if test="${item.locked==1 }">
-		  		<button type="button" class="btn btn-primary" onclick="unlocaked('${item.id}')">启用</button>
+		  		<button type="button" class="btn btn-primary" onclick="unlocked('${item.id}')">启用</button>
 		  	</c:if>
 		  </td>
 		</tr>
@@ -44,6 +44,21 @@
 </table>
 <jsp:include page="../common/page.jsp"></jsp:include>
 <script>
+	function locked(id){
+		$.post('/admin/user/locked',{userId:id},function(res){
+			if(res){
+				reload();
+			}
+		})
+	}
+	function unlocked(id){
+		$.post('/admin/user/unlocked',{userId:id},function(res){
+			if(res){
+				reload();
+			}
+		})
+	}
+
 	function gotoPage(pageNo){
 		$("[name=pageNum]").val(pageNo);
 		console.log(pageNo);

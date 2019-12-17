@@ -33,6 +33,9 @@ public class User implements Serializable{
 
     private Date updateTime;
 
+    public boolean isAdmin() {
+    	return "1".equals(getRole());
+    }
     @Override
 	public String toString() {
 		return "User [id=" + id + ", username=" + username + ", password=" + password + ", nickname=" + nickname
