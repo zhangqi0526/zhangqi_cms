@@ -6,11 +6,18 @@
 <title>Cms后台登录</title>
 <link href="/public/css/bootstrap.min.css" rel="stylesheet">
 <link href="/public/css/cms.css" rel="stylesheet">
+<link href="/public/css/index.css" rel="stylesheet">
 </head>
 <body>
+	<nav class="nav justify-content-start" style="background-color: #222;">
+		<a class="nav-link navbar-brand" href="#">
+			<img src="https://v4.bootcss.com/docs/4.3/assets/brand/bootstrap-solid.svg" width="30" height="30" alt="">
+		</a>
+		<a class="nav-link" href="/">网站首页</a> 
+	</nav>
 	<div class="container-fluid">
 		<div class="col-4 offset-4 loginForm">
-			<h3>欢迎使用CMS系统</h3>
+			<h3>欢迎回来</h3>
 			<div class="alert alert-danger" role="alert" style="display: none">
 			</div>
 			<form id="loginForm">
@@ -23,10 +30,11 @@
 			    <input type="password" id="password" name="password" class="form-control"  placeholder="请输入密码...">
 			  </div>
 			  <button type="button" class="btn btn-primary" onclick="login();">登录</button>
-			  <!-- <label for="exampleInputPassword1">没有帐号，去<a href="/">注册</a></label> -->
+			  <label for="exampleInputPassword1">没有帐号，去<a href="/user/register">注册</a></label>
 			</form>
 		</div>
 	</div>
+	
 <script type="text/javascript" src="/public/js/jquery.min.1.12.4.js"></script>
 <script type="text/javascript" src="/public/js/bootstrap.min.js"></script>
 <script type="text/javascript">
@@ -42,10 +50,10 @@
 		$(".alert").hide();
 		//后台验证
 		var formData = $("#loginForm").serialize();
-		$.post("/admin/user/login",formData,function(res){
+		$.post("/user/login",formData,function(res){
 			if(res.result){
 				//验证通过跳转到后台首页
-				location.href="/admin/home";
+				location.href="/";
 			}else{
 				//否则提示错误信息
 				$(".alert").html(res.message);

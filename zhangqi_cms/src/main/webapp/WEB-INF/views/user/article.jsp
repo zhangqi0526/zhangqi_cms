@@ -56,8 +56,7 @@
 	      <td>${item.status==1?"已审核":item.status==0?"未审核":"审核未通过"}</td>
 	      <td><fmt:formatDate value="${item.created }" pattern="yyyy-MM-dd HH:mm"/></td>
 	      <td>
-	      	<button type="button" class="btn btn-primary" onclick="check('${item.id}')">审核</button>
-	      	<button type="button" class="btn btn-primary" onclick="addHot('${item.id}')">加热</button>
+	      	<button type="button" class="btn btn-primary" onclick="dedit('${item.id}')">编辑</button>
 	      </td>
 	    </tr>
    	</c:forEach>
