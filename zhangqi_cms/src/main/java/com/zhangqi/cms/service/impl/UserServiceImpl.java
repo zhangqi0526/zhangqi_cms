@@ -1,5 +1,6 @@
 package com.zhangqi.cms.service.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.zhangqi.cms.common.CmsMd5Util;
 import com.zhangqi.cms.dao.UserDao;
 import com.zhangqi.cms.pojo.User;
 import com.zhangqi.cms.service.UserService;
@@ -18,14 +20,28 @@ public class UserServiceImpl implements UserService {
 	private UserDao userDao;
 
 	@Override
+	public boolean register(User user) {
+		user.setCreateTime(new Date());
+		user.setUpdateTime(new Date());
+		user.setPassword(CmsMd5Util.string2MD5(user.getPassword()));
+		user.setLocked(0);
+		user.setScore(0);
+		user.setRole("0");
+		return userDao.insert(user)>0;
+	}
+
+	@Override
+	public User getByUsername(String username) {
+		return userDao.selectByUsername(username);
+	}
+
+	@Override
 	public boolean locked(Integer userId) {
-		// TODO Auto-generated method stub
 		return userDao.updateLocked(userId,1)>0;
 	}
 
 	@Override
 	public boolean unLocked(Integer userId) {
-		// TODO Auto-generated method stub
 		return userDao.updateLocked(userId,0)>0;
 	}
 
@@ -36,21 +52,25 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public boolean register(User user) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public User getByUsername(String username) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public PageInfo<User> getPageInfo(User user, int pageNum, int pageSize) {
 		PageHelper.startPage(pageNum, pageSize);
 		List<User> userList = userDao.select(user);
 		return new PageInfo<>(userList);
+	}
+
+	@Override
+	public boolean update(User user) {
+		user.setUpdateTime(new Date());
+		return userDao.update(user)>0;
+	}
+
+	@Override
+	public boolean isExist(String username) {
+		return getByUsername(username)!=null;
+	}
+
+	@Override
+	public User getById(Integer id) {
+		return userDao.selectById(id);
 	}
 }

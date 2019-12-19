@@ -16,14 +16,17 @@ import com.zhangqi.cms.pojo.User;
 import com.zhangqi.cms.service.ArticleService;
 import com.zhangqi.cms.service.UserService;
 
+
+
 @Controller
 @RequestMapping("/admin/")
 public class AdminController {
-
-	@Autowired 
+	@Autowired
 	private UserService userService;
+	
 	@Autowired
 	private ArticleService articleService;
+	
 	/**
 	 * @Title: login   
 	 * @Description: 后台登录   
@@ -65,8 +68,8 @@ public class AdminController {
 	 * @throws
 	 */
 	@RequestMapping("/user")
-	public String user(User user,Model model,@RequestParam(value="pageNum",defaultValue="1")int pageNum,
-					@RequestParam(value="pageSize",defaultValue="3")int pageSize) {
+	public String user(User user,Model model,
+			@RequestParam(value="pageNum",defaultValue="1") int pageNum,@RequestParam(value="pageSize",defaultValue="3") int pageSize) {
 		PageInfo<User> pageInfo = userService.getPageInfo(user,pageNum,pageSize);
 		model.addAttribute("pageInfo", pageInfo);
 		return "admin/user";
@@ -79,7 +82,7 @@ public class AdminController {
 	 * @return: boolean      
 	 * @throws
 	 */
-	@RequestMapping("user/locked")
+	@RequestMapping("/user/locked")
 	@ResponseBody
 	public boolean locked(Integer userId) {
 		boolean locked = userService.locked(userId);
@@ -93,12 +96,13 @@ public class AdminController {
 	 * @return: boolean      
 	 * @throws
 	 */
-	@RequestMapping("/user/unlocked")
+	@RequestMapping("/user/unLocked")
 	@ResponseBody
-	public boolean unlocked(Integer userId) {
+	public boolean unLocked(Integer userId) {
 		boolean locked = userService.unLocked(userId);
 		return locked;
 	}
+	
 	/**
 	 * @Title: article   
 	 * @Description: 文章管理     
@@ -113,6 +117,8 @@ public class AdminController {
 	@RequestMapping("/article")
 	public String article(Article article,Model model,
 			@RequestParam(value="pageNum",defaultValue="1") int pageNum,@RequestParam(value="pageSize",defaultValue="3") int pageSize) {
+		//设置文章状态
+		article.setStatusIds("0,-1,1");
 		PageInfo<Article> pageInfo = articleService.getPageInfo(article,pageNum,pageSize);
 		model.addAttribute("pageInfo", pageInfo);
 		List<Channel> channelList = articleService.getChannelList();
@@ -146,4 +152,7 @@ public class AdminController {
 	public boolean addHot(Article article) {
 		return articleService.addHot(article.getId());
 	}
+	
+	
+
 }

@@ -33,6 +33,8 @@ public class AdminUserController {
 	@ResponseBody
 	public Object login(User user,HttpSession session) {
 		//判断用户名和密码
+		
+		System.out.println("111111111111111"+user);
 		if(StringUtil.isBlank(user.getUsername()) || StringUtil.isBlank(user.getPassword())) {
 			return JsonResult.fail(1000, "用户名和密码不能为空");
 		}
@@ -42,12 +44,14 @@ public class AdminUserController {
 		if(userInfo==null) {
 			return JsonResult.fail(1000, "用户名或密码错误");
 		}
+		System.out.println("2222222222222222222"+userInfo);
 		//是否管理员
 		if(!userInfo.isAdmin()) {
 			return JsonResult.fail(1000, "权限不够");
 		}
 		//判断密码
 		String string2md5 = CmsMd5Util.string2MD5(user.getPassword());
+		System.out.println(string2md5);
 		if(string2md5.equals(userInfo.getPassword())) {
 			session.setAttribute(CmsConstant.UserAdminSessionKey, userInfo);
 			return JsonResult.sucess();

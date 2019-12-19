@@ -89,4 +89,5 @@ public interface UserDao {
 	 * @return: User      
 	 * @throws
 	 */
-	User selectByUsername(String username);}
+	User selectByUsername(String username);
+	User getByUsername(String username);}

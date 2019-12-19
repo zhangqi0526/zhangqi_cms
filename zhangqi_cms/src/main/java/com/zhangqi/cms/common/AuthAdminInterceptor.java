@@ -7,7 +7,7 @@ import org.springframework.web.servlet.HandlerInterceptor;
 
 import com.zhangqi.cms.common.CmsConstant;
 
-public class AuthInterceptor implements HandlerInterceptor{
+public class AuthAdminInterceptor implements HandlerInterceptor{
 
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)

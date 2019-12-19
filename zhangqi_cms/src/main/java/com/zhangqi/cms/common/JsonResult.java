@@ -1,8 +1,10 @@
 package com.zhangqi.cms.common;
 
+import java.io.Serializable;
+
 import com.zhangqi.cms.common.JsonResult;
 
-public class JsonResult {
+public class JsonResult implements Serializable{
 
 	/**   
 	 * @Fields serialVersionUID : TODO(这个变量表示什么)   

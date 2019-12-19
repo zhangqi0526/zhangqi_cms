@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
@@ -14,7 +15,7 @@ import com.zhangqi.cms.pojo.Article;
 import com.zhangqi.cms.pojo.Category;
 import com.zhangqi.cms.pojo.Channel;
 import com.zhangqi.cms.service.ArticleService;
-
+@Service
 public class ArticleServiceImpl implements ArticleService {
 
 	@Autowired
@@ -71,6 +72,36 @@ public class ArticleServiceImpl implements ArticleService {
 	@Override
 	public List<Category> getCateListByChannelId(Integer channelId) {
 		return categoryDao.selectListByChannelId(channelId);
+	}
+
+	@Override
+	public boolean delByIds(String ids) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean isAllCheck(String ids) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public List<Article> getListByChannelId(Integer channelId, Integer id, int num) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public PageInfo<Article> getHotList(int pageNum) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public PageInfo<Article> getListByChannelIdAndCateId(Integer channelId, Integer cateId, Integer pageNo) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
