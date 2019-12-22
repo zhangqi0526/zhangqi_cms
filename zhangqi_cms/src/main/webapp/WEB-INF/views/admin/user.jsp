@@ -44,7 +44,6 @@
 </table>
 <jsp:include page="../common/page.jsp"></jsp:include>
 <script>
-
 	function unLocked(id){
 		$.post('/admin/user/unLocked',{userId:id},function(res){
 			if(res){
@@ -60,8 +59,6 @@
 			}
 		})
 	}
-	
-	
 	
 	function gotoPage(pageNo){
 		$("[name=pageNum]").val(pageNo);

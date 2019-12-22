@@ -145,6 +145,7 @@ public class UserController {
 		User userInfo = (User)session.getAttribute(CmsConstant.UserSessionKey);
 		/** 查询用户信息 **/
 		User user = userService.getByUsername(userInfo.getUsername());
+		System.out.println(user);
 		model.addAttribute("user", user);
 		return "user/settings";
 	}

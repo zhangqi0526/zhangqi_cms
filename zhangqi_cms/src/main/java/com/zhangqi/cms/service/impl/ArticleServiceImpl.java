@@ -66,7 +66,7 @@ public class ArticleServiceImpl implements ArticleService {
 			article.setUpdated(new Date());
 			articleDao.update(article);
 		}
-		return false;
+		return true;
 	}
 
 	@Override
@@ -76,32 +76,43 @@ public class ArticleServiceImpl implements ArticleService {
 
 	@Override
 	public boolean delByIds(String ids) {
-		// TODO Auto-generated method stub
-		return false;
+		return articleDao.updateDeletedByIds(ids)>0;
 	}
 
 	@Override
 	public boolean isAllCheck(String ids) {
-		// TODO Auto-generated method stub
-		return false;
+		List<Article> articleList = articleDao.selectByIds(ids);
+		for (Article article:articleList) {
+			if(article.getStatus()==1) {
+				return false;
+			}
+		}
+		return true;
 	}
 
 	@Override
-	public List<Article> getListByChannelId(Integer channelId, Integer id, int num) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Article> getListByChannelId(Integer channelId, Integer aritcleId, int num) {
+		return articleDao.selectListByChannelId(channelId,aritcleId,num);
 	}
 
 	@Override
 	public PageInfo<Article> getHotList(int pageNum) {
-		// TODO Auto-generated method stub
-		return null;
+		PageHelper.startPage(pageNum, 6);
+		List<Article> articleList = articleDao.selectByHot();
+		
+		return new PageInfo<>(articleList);
 	}
 
 	@Override
-	public PageInfo<Article> getListByChannelIdAndCateId(Integer channelId, Integer cateId, Integer pageNo) {
-		// TODO Auto-generated method stub
-		return null;
+	public PageInfo<Article> getListByChannelIdAndCateId(Integer channelId, Integer cateId, Integer pageNum) {
+		PageHelper.startPage(pageNum, 6);
+		List<Article> articleList = articleDao.selectListByChannelIdAndCateId(channelId,cateId);
+		 return new PageInfo<>(articleList);
+	}
+
+	@Override
+	public List<Article> getNewList(int num) {
+		return articleDao.selectNewList(num);
 	}
 
 }

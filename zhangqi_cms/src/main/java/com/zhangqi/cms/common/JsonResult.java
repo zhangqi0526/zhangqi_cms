@@ -14,6 +14,7 @@ public class JsonResult implements Serializable{
 	private int errorCode;
 	private String message;
 	private Object data;
+
 	/**
 	 * @Title: sucess   
 	 * @Description: 成功   
