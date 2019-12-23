@@ -5,22 +5,29 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.github.pagehelper.PageInfo;
 import com.zhangqi.cms.common.CmsConstant;
 import com.zhangqi.cms.common.CmsMd5Util;
 import com.zhangqi.cms.common.JsonResult;
+import com.zhangqi.cms.pojo.Comment;
 import com.zhangqi.cms.pojo.User;
+import com.zhangqi.cms.service.CommentService;
 import com.zhangqi.cms.service.UserService;
 import com.zhangqi.common.utils.StringUtil;
 
 @Controller
-@RequestMapping("admin/user/")
+@RequestMapping("/admin/user/")
 public class AdminUserController {
 
 	@Autowired
 	private UserService userService;
+	@Autowired
+	private CommentService commentService;
 	/**
 	 * @Title: login   
 	 * @Description: 后台登录接口   
@@ -64,4 +71,11 @@ public class AdminUserController {
 		session.removeAttribute(CmsConstant.UserAdminSessionKey);
 		return "redirect:/admin/";
 	}
+	
+	/**
+	 * 用户界面的评论
+	 * @return String 
+	 */
+	
+
 }

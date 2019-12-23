@@ -33,7 +33,7 @@
 	      </td>
 	      <td>
 	      	<input type="hidden" name="delId" id="delId">
-	        <button type="button" class="btn btn-primary" onclick="del('${item.id}');">批删</button>
+	        <button type="button" class="btn btn-primary" onclick="del('${item.id}');">删除</button>
 	      	<button type="button" class="btn btn-primary" onclick="edit('${item.id}');">编辑</button>
 	      </td>
 	    </tr>

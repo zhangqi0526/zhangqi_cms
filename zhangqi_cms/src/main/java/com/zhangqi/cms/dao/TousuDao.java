@@ -4,9 +4,9 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
-import com.zhangqi.cms.pojo.Comment;
+import com.zhangqi.cms.pojo.Tousu;
 
-public interface CommentDao {
+public interface TousuDao {
 
 	/**
 	 * @Title: selectById   
@@ -16,7 +16,7 @@ public interface CommentDao {
 	 * @return: Comment      
 	 * @throws
 	 */
-	Comment selectById(@Param("id") Integer id);
+	Tousu selectById(@Param("id") Integer id);
 	/**
 	 * @Title: select   
 	 * @Description: 根据Comment查询列表  
@@ -25,7 +25,7 @@ public interface CommentDao {
 	 * @return: List<Comment>      
 	 * @throws
 	 */
-	List<Comment> select(@Param("comment") Comment comment);
+	List<Tousu> select(@Param("tousu") Tousu tousu);
 	/**
 	 * @Title: count   
 	 * @Description: 查询数据条数   
@@ -34,7 +34,7 @@ public interface CommentDao {
 	 * @return: int      
 	 * @throws
 	 */
-	int count(@Param("comment") Comment comment);
+	int count(@Param("tousu") Tousu tousu);
 	/**
 	 * @Title: insert   
 	 * @Description: 插入一条记录   
@@ -43,7 +43,7 @@ public interface CommentDao {
 	 * @return: int      
 	 * @throws
 	 */
-	int insert(@Param("comment") Comment comment);
+	int insert(@Param("tousu") Tousu tousu);
 	/**
 	 * @Title: update   
 	 * @Description: 根据Id更新记录 
@@ -52,7 +52,7 @@ public interface CommentDao {
 	 * @return: int      
 	 * @throws
 	 */
-	int update(@Param("comment") Comment comment);
+	int update(@Param("tousu") Tousu tousu);
 	/**
 	 * @Title: deleteById   
 	 * @Description: 根据Id删除记录   
@@ -71,6 +71,4 @@ public interface CommentDao {
 	 * @throws
 	 */
 	int deleteByIds(@Param("ids") String ids);
-	
-	List<Comment> UserPageInfo(@Param("comment")Comment comment);
 }

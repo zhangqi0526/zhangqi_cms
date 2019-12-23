@@ -45,6 +45,7 @@ public class Article implements Serializable{
     
     private String statusIds;
     
+    private int tousuCnt;
     
     @Override
 	public String toString() {
@@ -52,32 +53,25 @@ public class Article implements Serializable{
 				+ ", categoryId=" + categoryId + ", userId=" + userId + ", hits=" + hits + ", hot=" + hot + ", status="
 				+ status + ", deleted=" + deleted + ", created=" + created + ", updated=" + updated + ", commentcnt="
 				+ commentcnt + ", content=" + content + "]";
+	}    
+	public int getTousuCnt() {
+		return tousuCnt;
 	}
-
-    
-    
+	public void setTousuCnt(int tousuCnt) {
+		this.tousuCnt = tousuCnt;
+	}
 	public String getStatusIds() {
 		return statusIds;
 	}
-
 	public void setStatusIds(String statusIds) {
 		this.statusIds = statusIds;
 	}
-
-
-
 	public String getNickname() {
 		return nickname;
 	}
-
-
-
 	public void setNickname(String nickname) {
 		this.nickname = nickname;
 	}
-
-
-
 	public Integer getId() {
         return id;
     }
@@ -189,9 +183,6 @@ public class Article implements Serializable{
     public void setUpdated(Date updated) {
         this.updated = updated;
     }
-
-    
-
     public int getCommentcnt() {
 		return commentcnt;
 	}

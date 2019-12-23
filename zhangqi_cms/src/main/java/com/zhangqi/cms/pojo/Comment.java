@@ -21,12 +21,38 @@ public class Comment implements Serializable{
     private String nickname;
     
     private String headimg;
+    
+    private String title;
 
     @Override
 	public String toString() {
 		return "Comment [id=" + id + ", articleid=" + articleid + ", userid=" + userid + ", content=" + content
 				+ ", created=" + created + "]";
 	}
+
+    
+
+
+	public String getTitle() {
+		return title;
+	}
+
+
+
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+
+
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+
+
 
 	public Integer getId() {
         return id;

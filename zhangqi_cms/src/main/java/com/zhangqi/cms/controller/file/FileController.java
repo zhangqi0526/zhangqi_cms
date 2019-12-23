@@ -45,26 +45,24 @@ public class FileController {
 
 	@Value("${pic.path}")
 	String picUrl;
-	
+
 	/**
-	 * @Title: upload   
-	 * @Description: 文件上传   
-	 * @param: @param request
-	 * @param: @param imgFile
-	 * @param: @return
-	 * @param: @throws FileUploadException      
-	 * @return: FileResult      
-	 * @throws
+	 * @Title: upload @Description: 文件上传 @param: @param request @param: @param
+	 *         imgFile @param: @return @param: @throws FileUploadException @return:
+	 *         FileResult @throws
 	 */
 	@RequestMapping("upfile")
 	@ResponseBody
-	public FileResult upFile(HttpServletRequest request, @RequestParam("fileName") MultipartFile imgFile) throws FileUploadException {
-		return upload(request,imgFile);
+	public FileResult upFile(HttpServletRequest request, @RequestParam("fileName") MultipartFile imgFile)
+			throws FileUploadException {
+		return upload(request, imgFile);
 	}
+
 	@SuppressWarnings("unused")
 	@RequestMapping("upload")
 	@ResponseBody
-	public FileResult upload(HttpServletRequest request, @RequestParam MultipartFile imgFile) throws FileUploadException {
+	public FileResult upload(HttpServletRequest request, @RequestParam MultipartFile imgFile)
+			throws FileUploadException {
 
 		log.info("开始上传文件啊");
 		// 文件保存目录路径 todo
@@ -170,20 +168,17 @@ public class FileController {
 		return new FileResult(0, saveUrl + newFileName);
 
 	}
+
 	/**
-	 * @Title: manager   
-	 * @Description: 文件管理   
-	 * @param: @param request
-	 * @param: @return      
-	 * @return: JSONObject      
-	 * @throws
+	 * @Title: manager @Description: 文件管理 @param: @param
+	 *         request @param: @return @return: JSONObject @throws
 	 */
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@RequestMapping("manager")
 	public JSONObject manager(HttpServletRequest request) {
 
 		/** 根目录路径，可以指定绝对路径，比如 /var/www/attached **/
-		String rootPath = picRoot;//request.getSession().getServletContext().getRealPath("/") + "attached/";
+		String rootPath = picRoot;// request.getSession().getServletContext().getRealPath("/") + "attached/";
 		/** 根目录URL，可以指定绝对路径，比如 http://www.yoursite.com/attached **/
 		String rootUrl = request.getContextPath() + picUrl;
 		/** 图片扩展名 **/
@@ -288,58 +283,58 @@ public class FileController {
 		return obj.toJSONString();
 	}
 
-}
-
-@SuppressWarnings("rawtypes")
-class NameComparator implements Comparator {
-	public int compare(Object a, Object b) {
-		Hashtable hashA = (Hashtable) a;
-		Hashtable hashB = (Hashtable) b;
-		if (((Boolean) hashA.get("is_dir")) && !((Boolean) hashB.get("is_dir"))) {
-			return -1;
-		} else if (!((Boolean) hashA.get("is_dir")) && ((Boolean) hashB.get("is_dir"))) {
-			return 1;
-		} else {
-			return ((String) hashA.get("filename")).compareTo((String) hashB.get("filename"));
-		}
 	}
-}
-
-@SuppressWarnings("rawtypes")
-class SizeComparator implements Comparator {
-	public SizeComparator() {
-	}
-
-	public int compare(Object a, Object b) {
-		Hashtable hashA = (Hashtable) a;
-		Hashtable hashB = (Hashtable) b;
-		if (((Boolean) hashA.get("is_dir")) && !((Boolean) hashB.get("is_dir"))) {
-			return -1;
-		} else if (!((Boolean) hashA.get("is_dir")) && ((Boolean) hashB.get("is_dir"))) {
-			return 1;
-		} else {
-			if (((Long) hashA.get("filesize")) > ((Long) hashB.get("filesize"))) {
-				return 1;
-			} else if (((Long) hashA.get("filesize")) < ((Long) hashB.get("filesize"))) {
+	
+	@SuppressWarnings("rawtypes")
+	class NameComparator implements Comparator {
+		public int compare(Object a, Object b) {
+			Hashtable hashA = (Hashtable) a;
+			Hashtable hashB = (Hashtable) b;
+			if (((Boolean) hashA.get("is_dir")) && !((Boolean) hashB.get("is_dir"))) {
 				return -1;
+			} else if (!((Boolean) hashA.get("is_dir")) && ((Boolean) hashB.get("is_dir"))) {
+				return 1;
 			} else {
-				return 0;
+				return ((String) hashA.get("filename")).compareTo((String) hashB.get("filename"));
 			}
 		}
 	}
-}
-
-@SuppressWarnings("rawtypes")
-class TypeComparator implements Comparator {
-	public int compare(Object a, Object b) {
-		Hashtable hashA = (Hashtable) a;
-		Hashtable hashB = (Hashtable) b;
-		if (((Boolean) hashA.get("is_dir")) && !((Boolean) hashB.get("is_dir"))) {
-			return -1;
-		} else if (!((Boolean) hashA.get("is_dir")) && ((Boolean) hashB.get("is_dir"))) {
-			return 1;
-		} else {
-			return ((String) hashA.get("filetype")).compareTo((String) hashB.get("filetype"));
+	
+	@SuppressWarnings("rawtypes")
+	class SizeComparator implements Comparator {
+		public SizeComparator() {
+		}
+	
+		public int compare(Object a, Object b) {
+			Hashtable hashA = (Hashtable) a;
+			Hashtable hashB = (Hashtable) b;
+			if (((Boolean) hashA.get("is_dir")) && !((Boolean) hashB.get("is_dir"))) {
+				return -1;
+			} else if (!((Boolean) hashA.get("is_dir")) && ((Boolean) hashB.get("is_dir"))) {
+				return 1;
+			} else {
+				if (((Long) hashA.get("filesize")) > ((Long) hashB.get("filesize"))) {
+					return 1;
+				} else if (((Long) hashA.get("filesize")) < ((Long) hashB.get("filesize"))) {
+					return -1;
+				} else {
+					return 0;
+				}
+			}
 		}
 	}
+
+	@SuppressWarnings("rawtypes")
+	class TypeComparator implements Comparator {
+		public int compare(Object a, Object b) {
+			Hashtable hashA = (Hashtable) a;
+			Hashtable hashB = (Hashtable) b;
+			if (((Boolean) hashA.get("is_dir")) && !((Boolean) hashB.get("is_dir"))) {
+				return -1;
+			} else if (!((Boolean) hashA.get("is_dir")) && ((Boolean) hashB.get("is_dir"))) {
+				return 1;
+			} else {
+				return ((String) hashA.get("filetype")).compareTo((String) hashB.get("filetype"));
+			}
+		}
 }

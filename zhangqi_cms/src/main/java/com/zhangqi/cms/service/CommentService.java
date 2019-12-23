@@ -46,4 +46,9 @@ public class CommentService {
 		List<Comment> commentList = commentDao.select(comment);
 		return new PageInfo<>(commentList);
 	}
+	public PageInfo<Comment> UserPageInfo(Comment comment, int pageNum, int pageSize) {
+		PageHelper.startPage(pageNum, pageSize);
+		List<Comment> commentList = commentDao.UserPageInfo(comment);
+		return new PageInfo<>(commentList);
+	}
 }

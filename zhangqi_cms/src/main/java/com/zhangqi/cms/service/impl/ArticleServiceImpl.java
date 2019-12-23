@@ -30,7 +30,7 @@ public class ArticleServiceImpl implements ArticleService {
 		PageHelper.startPage(pageNum, pageSize);
 		List<Article> articleList = articleDao.select(article);
 		return new PageInfo<>(articleList);
-	}
+	} 
 
 	@Override
 	public boolean updateStatus(Integer id, int status) {
@@ -113,6 +113,11 @@ public class ArticleServiceImpl implements ArticleService {
 	@Override
 	public List<Article> getNewList(int num) {
 		return articleDao.selectNewList(num);
+	}
+
+	@Override
+	public void addTousu(Integer id) {
+		articleDao.addTousu(id);
 	}
 
 }

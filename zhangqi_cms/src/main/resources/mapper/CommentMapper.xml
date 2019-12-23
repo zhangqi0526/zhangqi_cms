@@ -18,6 +18,17 @@
 		select count(1) from cms_comment
 	</select>
 	
+	<select id="UserPageInfo" resultType="Comment">
+		SELECT c.id ,a.title,c.content,c.created
+		from cms_comment c,cms_article a,cms_user u 
+		where c.userId=u.id and c.articleId=a.id
+		
+			<if test="comment.title!=null and comment.title!=''">
+				and a.title like '%${comment.title}%'
+			</if>
+		
+	</select>
+	
 	<insert id="insert">
 		insert into cms_comment (articleId, userId, content, 
       created)

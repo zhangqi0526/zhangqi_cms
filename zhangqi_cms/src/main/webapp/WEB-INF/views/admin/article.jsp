@@ -31,7 +31,7 @@
 	  <button type="button" class="btn btn-primary mb-2" onclick="query()">查询</button>
 	</form>
   
-  	<table class="table">
+  	<table class="table table-dark">
   <thead>
     <tr>
       <th scope="col"><input type="checkbox" value="" id="chkALL" name="chkALL"></th>

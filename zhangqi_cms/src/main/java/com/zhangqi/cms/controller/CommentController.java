@@ -61,4 +61,13 @@ public class CommentController {
 		model.addAttribute("pageInfo", pageInfo);
 		return "comment/list";
 	}
+	
+	@RequestMapping(value="comment",method=RequestMethod.GET)
+	public String comment(Comment comment,Model model,@RequestParam(value="pageNum",defaultValue="1") int pageNum,
+			@RequestParam(value="pageSize",defaultValue="3") int pageSize) {
+		System.out.println("---------------------------------------------------------------------");
+		PageInfo<Comment> pageInfo = commentService.UserPageInfo(comment,pageNum,pageSize);
+		model.addAttribute("pageInfo", pageInfo);
+		return "user/comment";
+	}
 }
