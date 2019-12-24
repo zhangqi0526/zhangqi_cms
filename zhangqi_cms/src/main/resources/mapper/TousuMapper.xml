@@ -15,10 +15,9 @@
 	</select>
 	
 	<insert id="insert">
-		insert into cms_tousu (articleId, userId, content, 
-      created)
-    values (#{tousu.articleId}, #{tousu.userId}, #{tousu.content}, 
-      #{tousu.created})
+		insert into cms_tousu(articleId,userId,content,created)
+		values(#{tousu.articleId},#{tousu.userId},
+		#{tousu.content},#{tousu.created})
 	</insert>
 	
 	<update id="update">

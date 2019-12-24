@@ -4,7 +4,6 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -78,6 +77,10 @@ public class UserController {
 			if("1".equals(user.getIsMima())) {
 				int maxAge = 1000*60*60*24;
 				CookieUtil.addCookie(response, "username", user.getUsername(),null,null,maxAge);
+			}
+			//  禁止用户登录
+			if(userInfo.getLocked() == 1) {
+				return JsonResult.fail(10000, "该用户被禁用");
 			}
 			return JsonResult.sucess();
 		}
@@ -197,10 +200,11 @@ public class UserController {
 	 * @return: Object      
 	 * @throws
 	 */
+	
 	@RequestMapping(value="isLogin",method=RequestMethod.POST)
 	public @ResponseBody Object isLogin(HttpSession session) {
 		Object userInfo = session.getAttribute(CmsConstant.UserSessionKey);
-		if(userInfo!=null) {
+		if(userInfo !=null) {
 			return JsonResult.sucess();
 		}
 		return JsonResult.fail(CmsConstant.unLoginErrorCode, "未登录");

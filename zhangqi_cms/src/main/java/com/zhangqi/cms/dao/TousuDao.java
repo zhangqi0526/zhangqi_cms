@@ -43,7 +43,7 @@ public interface TousuDao {
 	 * @return: int      
 	 * @throws
 	 */
-	int insert(@Param("tousu") Tousu tousu);
+	int insert(@Param("tousu")Tousu tousu);
 	/**
 	 * @Title: update   
 	 * @Description: 根据Id更新记录 
@@ -71,4 +71,6 @@ public interface TousuDao {
 	 * @throws
 	 */
 	int deleteByIds(@Param("ids") String ids);
+	
+	
 }

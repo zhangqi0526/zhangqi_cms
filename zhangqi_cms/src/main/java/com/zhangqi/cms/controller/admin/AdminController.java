@@ -16,8 +16,6 @@ import com.zhangqi.cms.pojo.User;
 import com.zhangqi.cms.service.ArticleService;
 import com.zhangqi.cms.service.UserService;
 
-
-
 @Controller
 @RequestMapping("/admin/")
 public class AdminController {
