@@ -44,7 +44,7 @@
 				<div style="margin-top: 10px;margin-bottom: 10px;font-weight: bold;color: #777;">
 					<span>${user.nickname }</span> 
 					<span><fmt:formatDate value="${article.created}" pattern="yyyy-MM-dd HH:mm:ss"/></span>
-					<span style="font-size: 24px;color: red;" onclick="pingShow()"></span>
+					<span onclick="pingShow()"></span>
 				</div>
 				<div style="font-size: 24">
 					${article.content }
